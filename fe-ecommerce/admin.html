@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+
+    <!-- Load font awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Link Css -->
+    <link rel="stylesheet" href="/assets/css/admin.css" />
+  </head>
+  <body>
+    <header>
+      <h2>Ecommerce - Admin</h2>
+    </header>
+
+    <!-- Menu -->
+    <aside class="sidebar">
+      <ul class="nav">
+        <li class="nav-title">MENU</li>
+        <li class="nav-item" id="homeMenu" onclick="showTab('home', this)">
+          <a class="nav-link" data-tab="home"
+            ><i class="fa fa-home"></i> Trang Chủ</a
+          >
+        </li>
+        <li
+          class="nav-item"
+          id="productMenu"
+          onclick="showTab('product', this)"
+        >
+          <a class="nav-link" data-tab="product"
+            ><i class="fa fa-th-large"></i> Sản Phẩm</a
+          >
+        </li>
+        <li class="nav-item" id="orderMenu" onclick="showTab('order', this)">
+          <a class="nav-link" data-tab="order"
+            ><i class="fa fa-file-text-o"></i> Đơn Hàng</a
+          >
+        </li>
+        <li
+          class="nav-item"
+          id="customerMenu"
+          onclick="showTab('customer', this)"
+        >
+          <a class="nav-link" data-tab="customer"
+            ><i class="fa fa-address-book-o"></i> Khách Hàng</a
+          >
+        </li>
+        <li
+          class="nav-item"
+          id="inventoryMenu"
+          onclick="showTab('inventory', this)"
+        >
+          <a class="nav-link" data-tab="inventory"
+            ><i class="fa-solid fa-warehouse"></i> Kho</a
+          >
+        </li>
+        <li class="nav-item">
+          <hr />
+        </li>
+        <li class="nav-item" onclick="goHome(event)">
+          <a href="index-admin.html" class="nav-link"
+            ><i class="fa fa-arrow-left"></i> Trang Chủ</a
+          >
+        </li>
+        <li class="nav-item" onclick="logout()">
+          <a href="index.html" class="nav-link"
+            ><i class="fa fa-arrow-left"></i> Đăng xuất</a
+          >
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Khung hiển thị chính -->
+    <div class="main">
+      <!-- Trang chủ -->
+      <div class="home tab" id="home">
+        <div class="dashboard">
+          <div class="dashboard-item">
+            <h3>Tổng số hóa đơn</h3>
+            <p id="totalOrders">0</p>
+          </div>
+          <div class="dashboard-item">
+            <h3>Tổng số khách hàng</h3>
+            <p id="totalCustomers">0</p>
+          </div>
+          <div class="dashboard-item">
+            <h3>Tổng doanh thu</h3>
+            <p id="totalRevenue">0</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sản Phẩm -->
+      <div class="product tab" id="product">
+        <div class="table-footer">
+          <div class="select-search">
+            <input
+              type="text"
+              id="searchInputProduct"
+              placeholder="Tìm kiếm..."
+            />
+            <i class="fa fa-search"></i>
+          </div>
+          <button><i class="fa fa-plus-square"></i> Thêm sản phẩm</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 10%">Id</th>
+              <th style="width: 30%">Tên</th>
+              <th style="width: 15%">Giá</th>
+              <th style="width: 15%">Loại</th>
+              <th style="width: 20%">Ngày thêm</th>
+              <th style="width: 10%">Hành động</th>
+            </tr>
+          </thead>
+          <tbody id="productTable">
+            <!-- Nội dung sản phẩm sẽ được thêm vào đây -->
+          </tbody>
+        </table>
+        <!-- Modal để thêm sản phẩm -->
+        <div id="addProductForm" class="modal">
+          <div class="modal-content">
+            <form id="productForm">
+              <div>
+                <label for="productName">Tên sản phẩm:</label>
+                <input type="text" id="productName" required />
+              </div>
+              <div>
+                <label for="productPrice">Giá:</label>
+                <input type="text" id="productPrice" required />
+              </div>
+              <div>
+                <label for="productAddDate">Ngày nhập:</label>
+                <input type="date" id="productAddDate" required />
+              </div>
+              <div>
+                <label for="productCategory">Danh mục:</label>
+                <select id="productCategory" required>
+                  <!-- Các danh mục sẽ được tải từ backend -->
+                </select>
+              </div>
+              <div>
+                <label for="productSize">Size:</label>
+                <select id="productSize" required>
+                  <!-- Các danh mục sẽ được tải từ backend -->
+                </select>
+              </div>
+              <div>
+                <label for="newQuantity">Số lượng:</label>
+                <input type="text" id="newQuantity" required />
+              </div>
+              <button type="submit">Lưu sản phẩm</button>
+              <button type="button" id="closeFormBtn">Đóng</button>
+            </form>
+          </div>
+        </div>
+        <div id="success-message-product" class="success-message">
+          Thêm sản phẩm thành công!
+        </div>
+        <div id="success-message-product-update" class="success-message">
+          Cập nhật sản phẩm thành công!
+        </div>
+
+        <!-- Modal xác nhận xóa -->
+        <div id="deleteConfirmationModal" class="delete-modal">
+          <div class="delete-modal-content">
+            <h3>Bạn có chắc chắn muốn xóa sản phẩm này?</h3>
+            <button id="confirmDeleteBtn" class="btn delete-confirm-btn">
+              Xóa
+            </button>
+            <button id="cancelDeleteBtn" class="btn delete-cancel-btn">
+              Hủy
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Đơn Hàng -->
+      <div class="order tab" id="order">
+        <div class="table-footer">
+          <div class="select-search">
+            <input
+              type="text"
+              id="searchInputOrder"
+              placeholder="Tìm kiếm..."
+            />
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 10%">Id</th>
+              <th style="width: 15%">Khách hàng</th>
+              <th style="width: 10%">Tổng tiền</th>
+              <th style="width: 15%">Ngày giờ</th>
+              <th style="width: 10%">Trạng thái</th>
+              <th style="width: 10%">Hành động</th>
+            </tr>
+          </thead>
+          <tbody id="orderTable">
+            <!-- Nội dung sản phẩm sẽ được thêm vào đây -->
+          </tbody>
+        </table>
+        <div id="success-message-order" class="success-message">
+          Cập nhật trạng thái thành công!
+        </div>
+      </div>
+
+      <!-- Khách Hàng -->
+      <div class="customer tab" id="customer">
+        <div class="table-footer">
+          <div class="select-search">
+            <input
+              type="text"
+              id="searchInputCustomer"
+              placeholder="Tìm kiếm..."
+            />
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 5%">Id</th>
+              <th style="width: 20%">Họ và tên</th>
+              <th style="width: 15%">Số điện thoại</th>
+              <th style="width: 30%">Địa chỉ</th>
+
+              <th style="width: 25%">Tên đăng nhập</th>
+              <th style="width: 25%">Mật khẩu</th>
+            </tr>
+          </thead>
+          <tbody id="customerTable">
+            <!-- Nội dung khách hàng sẽ được thêm vào đây -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="inventory tab" id="inventory">
+        <div class="table-footer">
+          <div class="select-search">
+            <input
+              type="text"
+              id="searchInputInventory"
+              placeholder="Tìm kiếm..."
+            />
+            <i class="fa fa-search"></i>
+          </div>
+          <button><i class="fa fa-plus-square"></i>Thêm số lượng</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 10%">Id sản phẩm</th>
+              <th style="width: 30%">Tên sản phẩm</th>
+              <th style="width: 15%">Số lượng</th>
+              <th style="width: 15%">Kích thước</th>
+              <th style="width: 10%">Hành động</th>
+            </tr>
+          </thead>
+          <tbody id="inventoryTable">
+            <!-- Nội dung sản phẩm sẽ được thêm vào đây -->
+          </tbody>
+        </table>
+      </div>
+      <div id="success-message-inventory" class="success-message">
+        Cập nhật số lượng thành công!
+      </div>
+    </div>
+
+    <script src="/assets/js/admin.js"></script>
+    <script src="/assets/js/product-admin.js"></script>
+    <script src="/assets/js/order-admin.js"></script>
+    <script src="/assets/js/customer-admin.js"></script>
+    <script src="/assets/js/inventory-admin.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecommerce Website</title>
+    <!--=============== FLATICON ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-straight/css/uicons-regular-straight.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <header class="header">
+      <div class="header__top">
+        <div class="header__container container">
+          <div class="header__contact">
+            <span>0812362562</span>
+            <span>HƯNG LỢI, NINH KIỀU, CẦN THƠ</span>
+          </div>
+          <p class="header__alert-news">
+            Ưu đãi siêu giá trị - Tiết kiệm nhiều phiếu giảm giá hơn
+          </p>
+          <a href="login-register.html" class="header__top-action">
+            <i class="fa-solid fa-user" id="login-icon"> </i>
+            ĐĂNG NHẬP/ĐĂNG KÝ
+          </a>
+        </div>
+      </div>
+
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo">
+          <img
+            class="nav__logo-img"
+            src="assets/img/logo.svg"
+            alt="website logo"
+          />
+        </a>
+        <div class="nav__menu" id="nav-menu">
+          <div class="nav__menu-top">
+            <a href="index.html" class="nav__menu-logo">
+              <img src="./assets/img/logo.svg" alt="" />
+            </a>
+            <div class="nav__close" id="nav-close">
+              <i class="fi fi-rs-cross-small"></i>
+            </div>
+          </div>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="index.html" class="nav__link">TRANG CHỦ</a>
+            </li>
+            <li class="nav__item">
+              <a href="shop.html" class="nav__link">CỬA HÀNG</a>
+            </li>
+            <li class="nav__item">
+              <a href="about.html" class="nav__link active">GIỚI THIỆU</a>
+            </li>
+          </ul>
+          <div class="header__search">
+            <input
+              type="text"
+              placeholder="Tìm kiếm..."
+              class="form__input"
+              id="search-input"
+            />
+            <button class="search__btn" id="search-button">
+              <img src="assets/img/search.png" alt="search icon" />
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!--=============== MAIN ===============-->
+    <main class="main">
+      <!--=============== SECTION ===============-->
+      <section class="home section--lg">
+        <div class="home__container container grid">
+          <div class="home__content">
+            <div class="home__title">
+              <h3><span>EVARA</span></h3>
+              <h3><span>XIN CHÀO BẠN</span></h3>
+            </div>
+
+            <p class="home__subtitle">
+              Evara cung cấp các mẫu quần áo thời trang, phong cách hiện đại,
+              phù hợp với mọi lứa tuổi và phong cách cá nhân.
+            </p>
+            <p class="home__subtitle">
+              Với chất lượng tuyệt vời và giá cả phải chăng, chúng tôi cam kết
+              mang lại cho bạn những sản phẩm tốt nhất.
+            </p>
+          </div>
+          <img src="assets/img/about.jpg" class="home__img" alt="hats" />
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="feature">
+          <h3>Chất Lượng Tốt</h3>
+          <p>
+            Chúng tôi sử dụng các chất liệu vải cao cấp, đảm bảo sự thoải mái và
+            bền bỉ cho người mặc.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Thời Trang Hiện Đại</h3>
+          <p>Cập nhật xu hướng mới nhất, giúp bạn luôn nổi bật và tự tin.</p>
+        </div>
+        <div class="feature">
+          <h3>Giá Cả Hợp Lý</h3>
+          <p>
+            Sản phẩm chất lượng cao với mức giá phải chăng, phù hợp với mọi đối
+            tượng khách hàng.
+          </p>
+        </div>
+      </section>
+      <!--=============== NEWSLETTER ===============-->
+      <section class="newsletter section home__newsletter">
+        <div class="newsletter__container container grid">
+          <h3 class="newsletter__title flex">
+            <img
+              src="./assets/img/icon-email.svg"
+              alt=""
+              class="newsletter__icon"
+            />
+            Đăng ký để nhận tin tức mới
+          </h3>
+          <p class="newsletter__description">
+            ...và nhận ngay ưu đãi cho lần mua đầu tiên.
+          </p>
+          <form action="" class="newsletter__form">
+            <input
+              type="text"
+              placeholder="Số điện thoại của bạn"
+              class="newsletter__input"
+            />
+            <button type="submit" class="newsletter__btn">Đăng ký</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!--=============== FOOTER ===============-->
+    <footer class="footer container">
+      <div class="footer__container grid">
+        <div class="footer__content">
+          <a href="index.html" class="footer__logo">
+            <img src="./assets/img/logo.svg" alt="" class="footer__logo-img" />
+          </a>
+          <h3 class="footer__subtitle">Contact</h3>
+          <p class="footer__description">
+            <span>Địa chỉ:</span> Đường 3/2, Hưng Lợi, Ninh Kiều, Cần Thơ
+          </p>
+          <p class="footer__description">
+            <span>Số điện thoại:</span> 0812362562
+          </p>
+          <p class="footer__description">
+            <span>Mở của - Đóng cửa:</span> 8:00 - 22:00, Thứ 2 - Thứ Bảy
+          </p>
+          <div class="footer__social">
+            <h4 class="footer__subtitle">Theo dõi chúng tôi</h4>
+            <div class="footer__links flex">
+              <a href="#">
+                <img
+                  src="./assets/img/icon-facebook.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+              <a href="#">
+                <img
+                  src="./assets/img/icon-twitter.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+              <a href="#">
+                <img
+                  src="./assets/img/icon-instagram.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+              <a href="#">
+                <img
+                  src="./assets/img/icon-pinterest.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+              <a href="#">
+                <img
+                  src="./assets/img/icon-youtube.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer__content">
+          <h3 class="footer__title">Liên kết nhanh</h3>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">Trang chủ</a></li>
+            <li><a href="shop.html" class="footer__link">Cửa hàng</a></li>
+            <li><a href="about.html" class="footer__link">Giới thiệu</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Thanh toán</h3>
+          <img
+            src="./assets/img/payment-method.png"
+            alt=""
+            class="payment__img"
+          />
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="copyright">
+          &copy; 2024 Evara. Tất cả quyền lợi được bảo lưu.
+        </p>
+        <span class="designer">Designer by VY</span>
+      </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

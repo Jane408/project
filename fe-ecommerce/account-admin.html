@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== FLATICON ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-straight/css/uicons-regular-straight.css"
+    />
+
+    <!--=============== SWIPER CSS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+
+    <title>Ecommerce Website</title>
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <header class="header">
+      <div class="header__top">
+        <div class="header__container container">
+          <div class="header__contact">
+            <span>0812362562</span>
+            <span>HƯNG LỢI, NINH KIỀU, CẦN THƠ</span>
+          </div>
+          <p class="header__alert-news">
+            Ưu đãi siêu giá trị - Tiết kiệm nhiều phiếu giảm giá hơn
+          </p>
+        </div>
+      </div>
+
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo">
+          <img
+            class="nav__logo-img"
+            src="assets/img/logo.svg"
+            alt="website logo"
+          />
+        </a>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="index-user.html" class="nav__link">TRANG CHỦ</a>
+            </li>
+            <li class="nav__item">
+              <a href="shop-user.html" class="nav__link">CỬA HÀNG</a>
+            </li>
+            <li class="nav__item">
+              <a href="accounts.html" class="nav__link active-link"
+                >TÀI KHOẢN</a
+              >
+            </li>
+            <li class="nav__item">
+              <a href="admin.html" class="nav__link active-link">QUẢN LÝ</a>
+            </li>
+          </ul>
+          <div class="header__search">
+            <input type="text" placeholder="Tìm kiếm..." class="form__input" />
+            <button class="search__btn">
+              <img src="assets/img/search.png" alt="search icon" />
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!--=============== MAIN ===============-->
+    <main class="main">
+      <!--=============== ACCOUNTS ===============-->
+      <section class="accounts section--lg">
+        <div class="accounts__container container grid">
+          <div class="account__tabs">
+            <p class="account__tab" data-target="#update-profile">
+              <i class="fi fi-rs-user"></i>Thông tin khách hàng
+            </p>
+
+            <p class="account__tab"><i class="fi fi-rs-exit"></i> Logout</p>
+          </div>
+          <div class="tabs__content">
+            <div class="tab__content active-tab" content id="dashboard">
+              <h3 class="tab__header" id="fullname">Hello Rosie</h3>
+              <div class="tab__body">
+                <p class="tab__description">
+                  Tại trang quản lý tài khoản, bạn có thể dễ dàng kiểm tra và
+                  quản lý thông tin cá nhân và đăng xuất khỏi tài khoản.
+                </p>
+              </div>
+            </div>
+
+            <div class="tab__content" content id="update-profile">
+              <h3 class="tab__header">Thông tin khách hàng</h3>
+              <div class="tab__body">
+                <h4>
+                  Họ và tên:
+                  <span id="customer-name">Nguyễn Văn A</span>
+                </h4>
+                <h4>
+                  Địa chỉ:
+                  <span id="customer-address"
+                    >123 Đường ABC, Phường XYZ, Quận 1</span
+                  >
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/account-admin.js"></script>
+  </body>
+</html>
